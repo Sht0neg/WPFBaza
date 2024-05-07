@@ -5,9 +5,11 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFBaza", "WPFBaza\WPFBaza.csproj", "{AC38DC38-D5B9-4DB5-B0B9-70C8E323B754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz", "Dz\Dz.csproj", "{A755AF0D-76E4-43C4-9022-96C5FEE3549A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dz", "Dz\Dz.csproj", "{A755AF0D-76E4-43C4-9022-96C5FEE3549A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DzAfter", "DzAfter\DzAfter.csproj", "{D661B27D-417D-4D24-BE2F-9270CDC27729}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DzAfter", "DzAfter\DzAfter.csproj", "{D661B27D-417D-4D24-BE2F-9270CDC27729}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project", "Project\Project.csproj", "{39B68E37-E3A5-4B67-9F75-721996E24213}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D661B27D-417D-4D24-BE2F-9270CDC27729}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D661B27D-417D-4D24-BE2F-9270CDC27729}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D661B27D-417D-4D24-BE2F-9270CDC27729}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B68E37-E3A5-4B67-9F75-721996E24213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B68E37-E3A5-4B67-9F75-721996E24213}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B68E37-E3A5-4B67-9F75-721996E24213}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B68E37-E3A5-4B67-9F75-721996E24213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
