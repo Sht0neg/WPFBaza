@@ -15,26 +15,16 @@ using System.Windows.Shapes;
 namespace Project
 {
     /// <summary>
-    /// Логика взаимодействия для AddGoodsWindow.xaml
+    /// Логика взаимодействия для ReGoodsWindow.xaml
     /// </summary>
-    public partial class AddGoodsWindow : Window
+    public partial class ReGoodsWindow : Window
     {
-        MainWindow? parent;
-        public AddGoodsWindow(MainWindow? parent)
+        GoodsWindow? parent;
+        public ReGoodsWindow(GoodsWindow? parent)
         {
             InitializeComponent();
             this.parent = parent;
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            MessageBox.Show("Товар успешно добавлен!");
-        }
     }
 }

@@ -24,13 +24,19 @@ namespace Project
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddGoodsWindow add = new AddGoodsWindow(this);
-            add.Show();
+            bool? result = add.ShowDialog();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             AddProducerWindow add = new AddProducerWindow(this);
-            add.Show();
+            bool? result = add.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            GoodsWindow inf = new GoodsWindow(this);
+            bool? result = inf.ShowDialog();
         }
     }
 }
