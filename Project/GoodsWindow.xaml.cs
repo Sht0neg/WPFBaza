@@ -20,7 +20,7 @@ namespace Project
     /// </summary>
     public partial class GoodsWindow : Window
     {
-        Context? context;
+        public Context? context;
         MainWindow? parent;
         public GoodsWindow(MainWindow? parent)
         {
@@ -41,8 +41,19 @@ namespace Project
 
         private void ReButton_Click(object sender, RoutedEventArgs e)
         {
-            ReGoodsWindow re = new ReGoodsWindow(this);
+            if (GoodsDataGridView.SelectedItems.Count == 0) return;
+            Goods? selectedItem = GoodsDataGridView.SelectedItem as Goods;
+
+            AddGoodsWindow re = new AddGoodsWindow(selectedItem);
             bool? result = re.ShowDialog();
+
+            Goods good = context.Goods.Find(selectedItem.Id);
+
+            if (good == null) return;
+
+            Goods modif = re.CurrentGood;
+
+            context.Goods.Update(selectedItem);
         }
     }
 }
