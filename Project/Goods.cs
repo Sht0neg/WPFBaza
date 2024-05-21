@@ -26,10 +26,11 @@ namespace Project
 
         public string RF { get; set; }
 
-        public string Producer { get; set; }
+        public string ProducerName { get; set; }
 
         public int ProducerId { get; set; }
 
+        public virtual Producer Producer { get; set; }
 
         public string Batch { get; set; }
 

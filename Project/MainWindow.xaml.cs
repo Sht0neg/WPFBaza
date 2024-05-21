@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,27 +17,48 @@ namespace Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        Context? context;
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddGoodButton_Click(object sender, RoutedEventArgs e)
         {
             AddGoodsWindow add = new AddGoodsWindow(this);
             bool? result = add.ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void AddProdButton_Click(object sender, RoutedEventArgs e)
         {
             AddProducerWindow add = new AddProducerWindow(this);
             bool? result = add.ShowDialog();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void InfGoodButton_Click(object sender, RoutedEventArgs e)
         {
             GoodsWindow inf = new GoodsWindow(this);
             bool? result = inf.ShowDialog();
+        }
+
+        private void InfProdButton_Click(object sender, RoutedEventArgs e)
+        {
+            InfProducerWinsow inf = new InfProducerWinsow(this);
+            bool? result = inf.ShowDialog();
+        }
+
+        public void addProducer(string name, string adress, string phone, string inn)
+        {
+            context = new Context();
+            context.Producers.Load();
+            context.Producers.Add(new Producer
+            {
+                Name = name,
+                Phone = phone,
+                Address = adress,
+                INN = inn
+            });
+            context.SaveChanges();
         }
     }
 }
