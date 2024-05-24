@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore;
 
 namespace Project
 {
+    [Index(nameof(Name), IsUnique = true)]
     public class Producer
     {
         [Key]
@@ -23,7 +25,7 @@ namespace Project
 
         public string INN { get; set; }
 
-        public virtual ObservableCollectionListSource<Producer> Producers { get; }
+        public virtual ObservableCollectionListSource<Goods> Goods { get; }
 
     }
 }

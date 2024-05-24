@@ -23,6 +23,8 @@ namespace Project
         MainWindow? parent;
         GoodsWindow? sparent;
         public Goods? CurrentGood;
+        List<Producer> producers;
+
         public AddGoodsWindow(MainWindow? parent)
         {
             InitializeComponent();
@@ -44,8 +46,8 @@ namespace Project
 
             NameBox.Text = good.Name;
             InterNameBox.Text = good.Intenational;
-            DataBeginBox.DisplayDate = good.DataBegin;
-            DataEndBox.DisplayDate = good.DataEnd;
+            DataBeginBox.DisplayDate = (DateTime)good.DataBegin;
+            DataEndBox.DisplayDate = (DateTime)good.DataEnd;
             YesBox.IsChecked = good.Availability;
             NumberBox.Text = good.RF;
 
@@ -54,7 +56,7 @@ namespace Project
         public bool CheckGood(string name, string international, string rf, string price, string total) {
             if (name == "" || double.TryParse(name, out double numericValue)) { MessageBox.Show("Неправильно введено название!"); return false; };
             if (double.TryParse(international, out double numericValue1)) { MessageBox.Show("Неправильно введено международное название!"); return false; };
-            if (double.TryParse(rf, out double num)) { MessageBox.Show("Неправильно введен регистрационный номер!"); return false; };
+            if (rf == "") { MessageBox.Show("Неправильно введен регистрационный номер!"); return false; };
             if (!double.TryParse(price, out double numer)) { MessageBox.Show("Неправильно введена цена товара!"); return false; }
             if (!int.TryParse(total, out int numeric)) { MessageBox.Show("Неправильно введено количество товара!"); return false; }
             return true;
@@ -67,9 +69,48 @@ namespace Project
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            Close();
-            MessageBox.Show("Товар успешно добавлен!");
+            if (CheckGood(NameBox.Text, InterNameBox.Text, NumberBox.Text, PriceBox.Text, CountBox.Text))
+            {
+                Producer current = new Producer();
+                if (InterNameBox.Text == "") { InterNameBox.Text = NameBox.Text; }
+                foreach (Producer p in producers) {
+                if (p.Name == ProducerBox.SelectedItem) {
+                        current = p; 
+                    }
+                }
+                if (!(bool)YesBox.IsChecked) {
+                    CountBox.Text = "0";
+                }
+                parent.addGood(
+                    NameBox.Text,
+                    InterNameBox.Text,
+                    DataBeginBox.SelectedDate,
+                    DataEndBox.SelectedDate,
+                    YesBox.IsChecked,
+                    NumberBox.Text,
+                    current,
+                    PackBox.Text,
+                    Convert.ToDouble(PriceBox.Text),
+                    Convert.ToInt32(CountBox.Text)
+                ) ;
+                Close();
+                MessageBox.Show("Товар успешно добавлен!");
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            producers = parent.ProducerList();
+            foreach (Producer producer in producers)
+            {
+                ProducerBox.Items.Add(producer.Name);
+            }
+            List<string> batches = new List<string>() { "Ампулы", "Саше", "Флакон", "Блистер", "Туба" };
+            foreach (string batch in batches) {
+                PackBox.Items.Add(batch);
+            }
+            DataBeginBox.SelectedDate = DateTime.Today;
+            DataEndBox.SelectedDate = DateTime.Today;
         }
     }
 }

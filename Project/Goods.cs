@@ -18,11 +18,11 @@ namespace Project
 
         public string Intenational { get; set;}
 
-        public DateTime DataBegin { get; set; }
+        public DateTime? DataBegin { get; set; }
 
-        public DateTime DataEnd { get; set; }
+        public DateTime? DataEnd { get; set; }
 
-        public bool Availability { get; set; }
+        public bool? Availability { get; set; }
 
         public string RF { get; set; }
 

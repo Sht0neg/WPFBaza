@@ -32,11 +32,10 @@ namespace Project
         {
             context = new Context();
 
-            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             context.Goods.Load();
 
-            GoodsDataGridView.ItemsSource = context.Goods.Local.ToBindingList();
+            GoodsDataGridView.ItemsSource = context.Goods.Local.ToObservableCollection();
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)

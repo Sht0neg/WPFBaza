@@ -70,7 +70,7 @@ namespace Project
             return list;
         }
 
-        public void addGood(string name, string international, DateTime begin, DateTime end, bool av, string rf, Producer producer, string batch, double price, int total) {
+        public void addGood(string name, string international, DateTime? begin, DateTime? end, bool? av, string rf, Producer producer, string batch, double price, int total) {
             context = new Context();
             context.Goods.Load();
             context.Goods.Add(new Goods

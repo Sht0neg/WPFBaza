@@ -39,15 +39,23 @@ namespace Project
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             context = new Context();
+            //context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             context.Producers.Load();
 
-            ProducersDataGrid.ItemsSource = context.Producers.Local.ToBindingList();
+            ProducersDataGrid.ItemsSource = context.Producers.Local.ToObservableCollection();
         }
 
         private void ReButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (ProducersDataGrid.SelectedItems.Count == 0) return;
+            Producer selProducer = (Producer)ProducersDataGrid.SelectedItem;
+            AddProducerWindow form = new(selProducer);
+            bool? result = form.ShowDialog();
+            if (result == true) {
+                context.Producers.Update(selProducer);
+                context.SaveChanges();
+            }
         }
     }
 }
