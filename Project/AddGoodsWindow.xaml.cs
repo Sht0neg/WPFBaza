@@ -51,6 +51,15 @@ namespace Project
 
         }
 
+        public bool CheckGood(string name, string international, string rf, string price, string total) {
+            if (name == "" || double.TryParse(name, out double numericValue)) { MessageBox.Show("Неправильно введено название!"); return false; };
+            if (double.TryParse(international, out double numericValue1)) { MessageBox.Show("Неправильно введено международное название!"); return false; };
+            if (double.TryParse(rf, out double num)) { MessageBox.Show("Неправильно введен регистрационный номер!"); return false; };
+            if (!double.TryParse(price, out double numer)) { MessageBox.Show("Неправильно введена цена товара!"); return false; }
+            if (!int.TryParse(total, out int numeric)) { MessageBox.Show("Неправильно введено количество товара!"); return false; }
+            return true;
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -58,6 +67,7 @@ namespace Project
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            
             Close();
             MessageBox.Show("Товар успешно добавлен!");
         }

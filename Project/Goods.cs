@@ -34,7 +34,7 @@ namespace Project
 
         public string Batch { get; set; }
 
-        public float Price { get; set; }
+        public double Price { get; set; }
 
         public int Total { get; set; }
     }

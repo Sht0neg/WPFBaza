@@ -60,5 +60,34 @@ namespace Project
             });
             context.SaveChanges();
         }
+
+        public List<Producer> ProducerList() {
+            List<Producer> list = new List<Producer>();
+            context = new Context();
+            foreach (Producer prod in context.Producers ) {
+                list.Add( prod );
+            }
+            return list;
+        }
+
+        public void addGood(string name, string international, DateTime begin, DateTime end, bool av, string rf, Producer producer, string batch, double price, int total) {
+            context = new Context();
+            context.Goods.Load();
+            context.Goods.Add(new Goods
+            {
+                Name = name,
+                Intenational = international,
+                DataBegin = begin,
+                DataEnd = end,
+                Availability = av,
+                RF = rf,
+                ProducerName = producer.Name,
+                ProducerId = producer.ProducerId,
+                Batch = batch,
+                Price = price,
+                Total = total
+            });
+            context.SaveChanges(true);
+        }
     }
 }
