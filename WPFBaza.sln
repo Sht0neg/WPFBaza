@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DzAfter", "DzAfter\DzAfter.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project", "Project\Project.csproj", "{39B68E37-E3A5-4B67-9F75-721996E24213}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFD", "WPFD\WPFD.csproj", "{9D9C24B5-9C15-4BCC-A2A3-8CEA08DB7234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFD", "WPFD\WPFD.csproj", "{9D9C24B5-9C15-4BCC-A2A3-8CEA08DB7234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kr", "kr\kr.csproj", "{B858E83E-1586-4F38-86A2-E1E9B83D0CC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{9D9C24B5-9C15-4BCC-A2A3-8CEA08DB7234}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D9C24B5-9C15-4BCC-A2A3-8CEA08DB7234}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D9C24B5-9C15-4BCC-A2A3-8CEA08DB7234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B858E83E-1586-4F38-86A2-E1E9B83D0CC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B858E83E-1586-4F38-86A2-E1E9B83D0CC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B858E83E-1586-4F38-86A2-E1E9B83D0CC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B858E83E-1586-4F38-86A2-E1E9B83D0CC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
